@@ -10,7 +10,7 @@
  * @returns {undefined}
  */
 export default function(context, boundingBox, fillStyle) {
-  context.fillStyle = fillStyle;
+  context.fillStyle = 'rgba(0, 0, 0, 0.5)';
   context.fillRect(
     boundingBox.left,
     boundingBox.top,

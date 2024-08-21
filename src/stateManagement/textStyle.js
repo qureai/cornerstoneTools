@@ -1,5 +1,5 @@
 const textStyle = {
-  fontSize: 15,
+  fontSize: 12,
   fontFamily: 'Arial',
   backgroundColor: 'transparent',
 };
@@ -29,7 +29,7 @@ function setFont(font) {
  * @returns {string} CSS font property
  */
 function getFont() {
-  return `${textStyle.fontSize}px ${textStyle.fontFamily}`;
+  return `bold ${textStyle.fontSize}px ${textStyle.fontFamily}`;
 }
 
 /**

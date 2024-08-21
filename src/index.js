@@ -88,6 +88,7 @@ import {
   ProbeTool,
   RectangleRoiTool,
   TextMarkerTool,
+  TextTool,
 } from './tools/annotation/index.js';
 import {
   BrushTool,
@@ -221,6 +222,7 @@ const cornerstoneTools = {
   EllipticalRoiTool,
   FreehandRoiTool,
   CustomLengthTool,
+  TextTool,
   LengthTool,
   ProbeTool,
   RectangleRoiTool,
@@ -331,6 +333,7 @@ export {
   FreehandRoiTool,
   LengthTool,
   CustomLengthTool,
+  TextTool,
   ProbeTool,
   RectangleRoiTool,
   TextMarkerTool,

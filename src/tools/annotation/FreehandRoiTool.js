@@ -464,42 +464,42 @@ export default class FreehandRoiTool extends BaseAnnotationTool {
         }
 
         // Update textbox stats
-        if (data.invalidated === true && !data.active) {
-          if (data.meanStdDev && data.meanStdDevSUV && data.area) {
-            this.throttledUpdateCachedStats(image, element, data);
-          } else {
-            this.updateCachedStats(image, element, data);
-          }
-        }
+        //if (data.invalidated === true && !data.active) {
+        //  if (data.meanStdDev && data.meanStdDevSUV && data.area) {
+        //    this.throttledUpdateCachedStats(image, element, data);
+        //  } else {
+        //    this.updateCachedStats(image, element, data);
+        //  }
+        //}
 
         // Only render text if polygon ROI has been completed and freehand 'shiftKey' mode was not used:
-        if (data.polyBoundingBox && !data.handles.textBox.freehand) {
-          // If the textbox has not been moved by the user, it should be displayed on the right-most
-          // Side of the tool.
-          if (!data.handles.textBox.hasMoved) {
-            // Find the rightmost side of the polyBoundingBox at its vertical center, and place the textbox here
-            // Note that this calculates it in image coordinates
-            data.handles.textBox.x =
-              data.polyBoundingBox.left + data.polyBoundingBox.width;
-            data.handles.textBox.y =
-              data.polyBoundingBox.top + data.polyBoundingBox.height / 2;
-          }
+        //if (data.polyBoundingBox && !data.handles.textBox.freehand) {
+        //  // If the textbox has not been moved by the user, it should be displayed on the right-most
+        //  // Side of the tool.
+        //  if (!data.handles.textBox.hasMoved) {
+        //    // Find the rightmost side of the polyBoundingBox at its vertical center, and place the textbox here
+        //    // Note that this calculates it in image coordinates
+        //    data.handles.textBox.x =
+        //      data.polyBoundingBox.left + data.polyBoundingBox.width;
+        //    data.handles.textBox.y =
+        //      data.polyBoundingBox.top + data.polyBoundingBox.height / 2;
+        //  }
 
-          const text = textBoxText.call(this, data);
+        //  const text = textBoxText.call(this, data);
 
-          drawLinkedTextBox(
-            context,
-            element,
-            data.handles.textBox,
-            text,
-            data.handles.points,
-            textBoxAnchorPoints,
-            color,
-            lineWidth,
-            0,
-            true
-          );
-        }
+        //  //drawLinkedTextBox(
+        //  //  context,
+        //  //  element,
+        //  //  data.handles.textBox,
+        //  //  text,
+        //  //  data.handles.points,
+        //  //  textBoxAnchorPoints,
+        //  //  color,
+        //  //  lineWidth,
+        //  //  0,
+        //  //  true
+        //  //);
+        //}
       });
     }
 

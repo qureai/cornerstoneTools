@@ -42,7 +42,7 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
       name: 'RectangleRoi',
       supportedInteractionTypes: ['Mouse', 'Touch'],
       configuration: {
-        drawHandles: true,
+        drawHandles: false,
         drawHandlesOnHover: false,
         hideHandlesIfMoving: false,
         renderDashed: false,
@@ -225,9 +225,9 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
           data.handles.initialRotation
         );
 
-        if (this.configuration.drawHandles) {
-          drawHandles(context, eventData, data.handles, handleOptions);
-        }
+        //if (this.configuration.drawHandles) {
+        //  drawHandles(context, eventData, data.handles, handleOptions);
+        //}
 
         // Update textbox stats
         if (data.invalidated === true) {
@@ -239,40 +239,40 @@ export default class RectangleRoiTool extends BaseAnnotationTool {
         }
 
         // Default to textbox on right side of ROI
-        if (!data.handles.textBox.hasMoved) {
-          const defaultCoords = getROITextBoxCoords(
-            eventData.viewport,
-            data.handles
-          );
+        //if (!data.handles.textBox.hasMoved) {
+        //  const defaultCoords = getROITextBoxCoords(
+        //    eventData.viewport,
+        //    data.handles
+        //  );
 
-          Object.assign(data.handles.textBox, defaultCoords);
-        }
+        //  Object.assign(data.handles.textBox, defaultCoords);
+        //}
 
-        const textBoxAnchorPoints = handles =>
-          _findTextBoxAnchorPoints(handles.start, handles.end);
-        const textBoxContent = _createTextBoxContent(
-          context,
-          image.color,
-          data.cachedStats,
-          modality,
-          hasPixelSpacing,
-          this.configuration
-        );
+        //const textBoxAnchorPoints = handles =>
+        //  _findTextBoxAnchorPoints(handles.start, handles.end);
+        //const textBoxContent = _createTextBoxContent(
+        //  context,
+        //  image.color,
+        //  data.cachedStats,
+        //  modality,
+        //  hasPixelSpacing,
+        //  this.configuration
+        //);
 
-        data.unit = _getUnit(modality, this.configuration.showHounsfieldUnits);
+        //data.unit = _getUnit(modality, this.configuration.showHounsfieldUnits);
 
-        drawLinkedTextBox(
-          context,
-          element,
-          data.handles.textBox,
-          textBoxContent,
-          data.handles,
-          textBoxAnchorPoints,
-          color,
-          lineWidth,
-          10,
-          true
-        );
+        //drawLinkedTextBox(
+        //  context,
+        //  element,
+        //  data.handles.textBox,
+        //  textBoxContent,
+        //  data.handles,
+        //  textBoxAnchorPoints,
+        //  color,
+        //  lineWidth,
+        //  10,
+        //  true
+        //);
       }
     });
   }

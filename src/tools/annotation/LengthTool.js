@@ -35,7 +35,7 @@ export default class LengthTool extends BaseAnnotationTool {
       supportedInteractionTypes: ['Mouse', 'Touch'],
       svgCursor: lengthCursor,
       configuration: {
-        drawHandles: true,
+        drawHandles: false,
         drawHandlesOnHover: false,
         hideHandlesIfMoving: false,
         renderDashed: false,
@@ -174,7 +174,7 @@ export default class LengthTool extends BaseAnnotationTool {
         // Configurable shadow
         setShadow(context, this.configuration);
 
-        const color = toolColors.getColorIfActive(data);
+        const color = 'greenyellow';
 
         const lineOptions = { color };
 
@@ -192,61 +192,61 @@ export default class LengthTool extends BaseAnnotationTool {
         );
 
         // Draw the handles
-        const handleOptions = {
-          color,
-          handleRadius,
-          drawHandlesIfActive: drawHandlesOnHover,
-          hideHandlesIfMoving,
-        };
+        //const handleOptions = {
+        //  color,
+        //  handleRadius,
+        //  drawHandlesIfActive: drawHandlesOnHover,
+        //  hideHandlesIfMoving,
+        //};
 
-        if (this.configuration.drawHandles) {
-          drawHandles(context, eventData, data.handles, handleOptions);
-        }
+        //if (this.configuration.drawHandles) {
+        //  drawHandles(context, eventData, data.handles, handleOptions);
+        //}
 
-        if (!data.handles.textBox.hasMoved) {
-          const coords = {
-            x: Math.max(data.handles.start.x, data.handles.end.x),
-          };
+        //if (!data.handles.textBox.hasMoved) {
+        //  const coords = {
+        //    x: Math.max(data.handles.start.x, data.handles.end.x),
+        //  };
 
-          // Depending on which handle has the largest x-value,
-          // Set the y-value for the text box
-          if (coords.x === data.handles.start.x) {
-            coords.y = data.handles.start.y;
-          } else {
-            coords.y = data.handles.end.y;
-          }
+        //  // Depending on which handle has the largest x-value,
+        //  // Set the y-value for the text box
+        //  if (coords.x === data.handles.start.x) {
+        //    coords.y = data.handles.start.y;
+        //  } else {
+        //    coords.y = data.handles.end.y;
+        //  }
 
-          data.handles.textBox.x = coords.x;
-          data.handles.textBox.y = coords.y;
-        }
+        //  data.handles.textBox.x = coords.x;
+        //  data.handles.textBox.y = coords.y;
+        //}
 
         // Move the textbox slightly to the right and upwards
         // So that it sits beside the length tool handle
-        const xOffset = 10;
+        //const xOffset = 10;
 
         // Update textbox stats
-        if (data.invalidated === true) {
-          if (data.length) {
-            this.throttledUpdateCachedStats(image, element, data);
-          } else {
-            this.updateCachedStats(image, element, data);
-          }
-        }
+        //if (data.invalidated === true) {
+        //  if (data.length) {
+        //    this.throttledUpdateCachedStats(image, element, data);
+        //  } else {
+        //    this.updateCachedStats(image, element, data);
+        //  }
+        //}
 
-        const text = textBoxText(data, rowPixelSpacing, colPixelSpacing);
+        //const text = textBoxText(data, rowPixelSpacing, colPixelSpacing);
 
-        drawLinkedTextBox(
-          context,
-          element,
-          data.handles.textBox,
-          text,
-          data.handles,
-          textBoxAnchorPoints,
-          color,
-          lineWidth,
-          xOffset,
-          true
-        );
+        //drawLinkedTextBox(
+        //  context,
+        //  element,
+        //  data.handles.textBox,
+        //  text,
+        //  data.handles,
+        //  textBoxAnchorPoints,
+        //  color,
+        //  lineWidth,
+        //  xOffset,
+        //  true
+        //);
       });
     }
 
